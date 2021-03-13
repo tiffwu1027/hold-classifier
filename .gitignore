@@ -1,2 +1,5 @@
 env
 *.db
+__pycache__
+.vscode
+*.DS_Store
