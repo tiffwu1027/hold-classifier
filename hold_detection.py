@@ -86,5 +86,11 @@ def plotCanny(edges, img):
 
 rng.seed(12345)
 test_img = cv2.imread("./images/hold_test_2.png",1)
+hold_w_person_img = cv2.imread("./images/hold_with_person.jpg",1)
+hold_w_person2_img = cv2.imread("./images/hold_with_person2.jpg",1)
+hold_depth_img = cv2.imread("./images/depth.jpg",1)
 
 detectHolds(test_img)
+detectHolds(hold_w_person_img)
+detectHolds(hold_w_person2_img)
+detectHolds(hold_depth_img)
