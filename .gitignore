@@ -3,3 +3,7 @@ env
 __pycache__
 .vscode
 *.DS_Store
+
+training_img
+test_img
+uploads/*
