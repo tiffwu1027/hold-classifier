@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Hold Classifier</title>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hold Classifier</h1>
+            <p>Want to know what type of hold you're looking at? Take a picture of the hold and upload it here to find out :)</p>
+            <button onclick="openHome()" class="start-btn">Start</button>
+        </div>
+        <script>
+            function openHome() {
+                location.href += "home";
+            }
+        </script>
+    </body>
+</html>

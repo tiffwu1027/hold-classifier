@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from keras.models import load_model
 import cv2
 import numpy as np
@@ -11,6 +11,7 @@ app = Flask(__name__)
 model = load_model("./model/model_keras.h5")
 test_datagen = ImageDataGenerator(rescale=1./255)
 
+
 def predict_single(img_path):
     img = np.array(cv2.resize(cv2.imread(img_path, cv2.IMREAD_COLOR), (150,150), interpolation=cv2.INTER_CUBIC)).reshape((1, 150, 150, 3))
     return model.predict(img)
@@ -19,7 +20,7 @@ def decode_labels(target, thresh=0.5):
     labels = {
         0: ['crimp', 'crimpy boi', 'rip fingers'],
         1: ['jug', 'victory jug'],
-        2: ['sloper', 'sloppy', 'sloppy boi'],
+        2: ['sloper', 'sloppy', 'sloppy boi', 'slop'],
         3: ['pinch', 'piiiinch', 'pinchy boi'],
         4: ['pocket', 'not a sloper'],
         5: ['edge']
@@ -33,11 +34,12 @@ ENDPOINTS BELOW
 """
 
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
-
 def index():
     return render_template('index.html')
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
 
 @app.route('/predict', methods=["GET", "POST"])
