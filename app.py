@@ -1,15 +1,17 @@
+import tensorflow as tf
+
 from flask import Flask, request, render_template
-from keras.models import load_model
+# from tensorflow.python.keras.models import load_model
 import cv2
 import numpy as np
 import random
 import os
-from keras.preprocessing.image import ImageDataGenerator
+# from tensorflow.python.keras.layers.preprocessing.image import ImageDataGenerator
 
 app = Flask(__name__)
 
-model = load_model("./model/model_keras.h5")
-test_datagen = ImageDataGenerator(rescale=1./255)
+model = tf.keras.models.load_model("./model/model_keras.h5")
+test_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 
 
 def predict_single(img_path):
