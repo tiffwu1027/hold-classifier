@@ -8,11 +8,13 @@ $(document).ready(function () {
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+
+            reader.addEventListener("load", function () {
+                // convert image file to base64 string
+                $('#imagePreview').attr('src', reader.result);
                 $('#imagePreview').hide();
                 $('#imagePreview').fadeIn(650);
-            }
+              }, false);
             reader.readAsDataURL(input.files[0]);
         }
     }
