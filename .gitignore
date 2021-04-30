@@ -6,4 +6,4 @@ __pycache__
 
 training_img
 test_img
-uploads/*
+# uploads/*
