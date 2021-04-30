@@ -52,7 +52,7 @@ def upload():
 
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(basepath, "uploads", f.filename)
-        print(listdir(basepath))
+        print(os.listdir(basepath))
         f.save(file_path)
 
         preds = predict_single(file_path)
