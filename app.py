@@ -10,7 +10,7 @@ import os
 
 app = Flask(__name__)
 
-model = tf.keras.models.load_model("./model/model_keras.h5")
+model = tf.keras.models.load_model("./model/model_keras_new.h5")
 test_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 
 
